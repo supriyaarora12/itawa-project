@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { banner1, banner2, bg } from '@/assets/banner';
+import { banner1, banner2, bg } from '@/assets';
 
 export default function Banner() {
   const [currentSlide, setCurrentSlide] = useState(0);

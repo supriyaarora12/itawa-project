@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { image } from '@/assets/saled';
+import { image } from '@/assets';
 import { Bed, Bath, Square } from 'lucide-react';
 
 export default function Apartments() {

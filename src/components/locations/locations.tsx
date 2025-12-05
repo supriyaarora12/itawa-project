@@ -2,6 +2,7 @@
 
 import { CheckCircle2 } from "lucide-react"
 import Image from "next/image"
+import  locationImage  from "@/assets/loactions/loaction.png"
 
 export default function Locations() {
   const highlights = [
@@ -46,7 +47,7 @@ export default function Locations() {
           <div className="flex justify-center">
             <div className="w-full aspect-square relative rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/image.png"
+                src={locationImage}
                 alt="Aerial city view with modern buildings"
                 fill
                 className="object-cover"
