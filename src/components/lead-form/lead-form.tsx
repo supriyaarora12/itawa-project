@@ -106,6 +106,8 @@ export default function LeadForm() {
             style={{
               fontFamily: 'Assistant, sans-serif',
               fontSize: '0.95rem',
+              color: '#000000',
+              backgroundColor: '#FFFFFF',
             }}
             placeholder={`Enter ${field.label.toLowerCase()}`}
           />
@@ -145,6 +147,8 @@ export default function LeadForm() {
             style={{
               fontFamily: 'Assistant, sans-serif',
               fontSize: '0.95rem',
+              color: '#000000',
+              backgroundColor: '#FFFFFF',
             }}
           >
             <option value="">Select {field.label}</option>
@@ -190,6 +194,8 @@ export default function LeadForm() {
           style={{
             fontFamily: 'Assistant, sans-serif',
             fontSize: '0.95rem',
+            color: '#000000',
+            backgroundColor: '#FFFFFF',
           }}
           placeholder={`Enter ${field.label.toLowerCase()}`}
         />
