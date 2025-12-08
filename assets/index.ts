@@ -39,9 +39,7 @@ import warehouseLoc3 from './warehouse/loc3.png';
 import warehouseLoc4 from './warehouse/loc4.png';
 import warehousePhase1 from './warehouse/phase1.png';
 import warehousePhase2 from './warehouse/phase2.png';
-// New warehouse photos - using paths for .JPEG files (Turbopack compatibility)
-// These will be referenced as paths since Turbopack doesn't support .JPEG imports directly
-
+//
 // Warehouse videos - using paths instead of imports
 
 // Export all images
@@ -73,34 +71,7 @@ export {
   warehouseLoc4,
   warehousePhase1,
   warehousePhase2,
-  // New warehouse photos
-  warehouseImg0231,
-  warehouseImg0234,
-  warehouseImg0236,
-  warehouseImg0237,
-  warehouseImg0239,
-  warehouseImg0242,
-  warehouseImg0243,
-  warehouseImg0244,
-  warehouseImg0246,
-  warehouseImg0247,
-  warehouseImg0247_1,
-  warehouseImg0250,
-  warehouseImg0252,
-  warehouseImg0254,
-  warehouseImg0255,
-  warehouseImg0258,
-  warehouseImg0259,
-  warehouseImg0261,
-  warehouseImg0263,
-  warehouseImg0266,
-  warehouseImg0270,
-  warehouseImg0271,
-  warehouseImg0273,
-  warehouseImg0277,
-  warehouseImg0278,
-  warehouseImg0280,
-  warehouseImg0281,
+  //
 };
 
 // Export saleImage as 'image' for backward compatibility
