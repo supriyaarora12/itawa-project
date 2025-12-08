@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/assets": ["./assets/index.ts"],
       "@/assets/*": ["./assets/*"]
     }
   },
