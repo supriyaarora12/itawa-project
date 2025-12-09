@@ -39,6 +39,7 @@ import warehouseLoc3 from './warehouse/loc3.png';
 import warehouseLoc4 from './warehouse/loc4.png';
 import warehousePhase1 from './warehouse/phase1.png';
 import warehousePhase2 from './warehouse/phase2.png';
+import logo from './logo/newmark-logo-black.png';
 //
 // Warehouse videos - using paths instead of imports
 
@@ -71,6 +72,8 @@ export {
   warehouseLoc4,
   warehousePhase1,
   warehousePhase2,
+  // Logo
+  logo,
   //
 };
 

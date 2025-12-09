@@ -30,12 +30,7 @@ export default function ContactMethods() {
             href={warehouseConfig.ctas.whatsapp.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#000000',
-              borderColor: '#173C65',
-            }}
+            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 bg-white text-black border-[#173C65]"
             aria-label="Contact via WhatsApp"
             title={warehouseConfig.ctas.whatsapp.text}
           >
@@ -54,12 +49,7 @@ export default function ContactMethods() {
         {warehouseConfig.contact?.phoneNumber && (
           <button
             onClick={handleCall}
-            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#000000',
-              borderColor: '#173C65',
-            }}
+            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 bg-white text-black border-[#173C65]"
             aria-label="Call us"
             title={`Call ${warehouseConfig.contact.phoneNumber}`}
           >
@@ -85,12 +75,7 @@ export default function ContactMethods() {
           <a
             href={warehouseConfig.ctas.download.link}
             download
-            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#000000',
-              borderColor: '#173C65',
-            }}
+            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 bg-white text-black border-[#173C65]"
             aria-label="Download brochure"
             title={warehouseConfig.ctas.download.text}
           >
@@ -117,10 +102,7 @@ export default function ContactMethods() {
         {/* Toggle Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full py-3 px-4 flex items-center justify-between"
-          style={{
-            fontFamily: 'Assistant, sans-serif',
-          }}
+          className="w-full py-3 px-4 flex items-center justify-between font-['Assistant',sans-serif]"
         >
           <span className="font-semibold text-gray-700">Contact Us</span>
           <svg
@@ -147,12 +129,7 @@ export default function ContactMethods() {
                 href={warehouseConfig.ctas.whatsapp.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: '#000000',
-                  borderColor: '#173C65',
-                }}
+                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2 bg-white text-black border-[#173C65]"
               >
                 <svg
                   className="w-6 h-6 mb-1"
@@ -170,12 +147,7 @@ export default function ContactMethods() {
             {warehouseConfig.contact?.phoneNumber && (
               <button
                 onClick={handleCall}
-                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: '#000000',
-                  borderColor: '#173C65',
-                }}
+                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2 bg-white text-black border-[#173C65]"
               >
                 <svg
                   className="w-6 h-6 mb-1"
@@ -200,20 +172,14 @@ export default function ContactMethods() {
               <a
                 href={warehouseConfig.ctas.download.link}
                 download
-                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: '#000000',
-                  borderColor: '#173C65',
-                }}
+                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2 bg-white text-black border-[#173C65]"
               >
                 <svg
-                  className="w-6 h-6 mb-1"
+                  className="w-6 h-6 mb-1 text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  style={{ color: '#000000' }}
                 >
                   <path
                     strokeLinecap="round"
@@ -230,45 +196,28 @@ export default function ContactMethods() {
       </div>
 
       {/* Desktop: Contact Section (Alternative - Can be placed in page) */}
-      <section id="contact" className="py-10 lg:py-14 bg-white relative" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section id="contact-methods" className="py-10 lg:py-14 bg-white relative overflow-hidden">
         {/* Background Image with Opacity */}
         {(() => {
           const bgImageUrl = typeof bg2 === 'string' ? bg2 : bg2.src || bg2;
           return (
             <div
+              className="absolute inset-0 bg-no-repeat bg-center bg-cover opacity-30 z-0"
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
                 backgroundImage: `url(${bgImageUrl})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-                opacity: 0.3,
-                zIndex: 0,
               }}
             />
           );
         })()}
-        <div className="container max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="container max-w-7xl mx-auto  relative z-10">
           <div className="text-center mb-8">
             <h2
-              className="text-3xl lg:text-4xl font-bold mb-3"
-              style={{
-                color: '#173C65',
-                fontFamily: 'Libre Baskerville, Georgia, serif',
-                fontWeight: 400
-              }}
+              className="text-3xl lg:text-4xl font-bold mb-3 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               contact us 
             </h2>
             <p
-              className="text-base text-gray-600 max-w-xl mx-auto leading-relaxed"
-              style={{
-                fontFamily: 'Assistant, sans-serif',
-              }}
+              className="text-base text-gray-600 max-w-xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
             >
               Choose your preferred method to contact us. We are here to help you find the perfect warehouse solution.
             </p>
@@ -284,8 +233,7 @@ export default function ContactMethods() {
                 className="group flex flex-col items-center justify-center p-2 rounded-2xl border-2 border-gray-200 hover:border-[#25D366] transition-all duration-300 hover:shadow-xl bg-white"
               >
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundColor: '#25D366' }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110 bg-[#25D366]"
                 >
                   <svg
                     className="w-7 h-7 text-white"
@@ -297,20 +245,12 @@ export default function ContactMethods() {
                   </svg>
                 </div>
                 <h3
-                  className="text-lg font-bold mb-1"
-                  style={{
-                    color: '#173C65',
-                    fontFamily: 'Libre Baskerville, Georgia, serif',
-                    fontWeight: 400
-                  }}
+                  className="text-lg font-bold mb-1 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
                 >
                   WhatsApp
                 </h3>
                 <p
-                  className="text-xs text-gray-600 text-center"
-                  style={{
-                    fontFamily: 'Assistant, sans-serif',
-                  }}
+                  className="text-xs text-gray-600 text-center font-['Assistant',sans-serif]"
                 >
                   Chat with us instantly
                 </p>
@@ -324,8 +264,7 @@ export default function ContactMethods() {
                 className="group flex flex-col items-center justify-center p-2 rounded-2xl border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl bg-white"
               >
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundColor: '#2563EB' }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110 bg-[#2563EB]"
                 >
                   <svg
                     className="w-7 h-7 text-white"
@@ -343,20 +282,12 @@ export default function ContactMethods() {
                   </svg>
                 </div>
                 <h3
-                  className="text-lg font-bold mb-1"
-                  style={{
-                    color: '#173C65',
-                    fontFamily: 'Libre Baskerville, Georgia, serif',
-                    fontWeight: 400
-                  }}
+                  className="text-lg font-bold mb-1 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
                 >
                   Call Us
                 </h3>
                 <p
-                  className="text-xs text-gray-600 text-center"
-                  style={{
-                    fontFamily: 'Assistant, sans-serif',
-                  }}
+                  className="text-xs text-gray-600 text-center font-['Assistant',sans-serif]"
                 >
                   {warehouseConfig.contact.phoneNumber}
                 </p>
@@ -371,19 +302,14 @@ export default function ContactMethods() {
                 className="group flex flex-col items-center justify-center p-2 rounded-2xl border-2 border-gray-200 hover:border-[#173C65] transition-all duration-300 hover:shadow-xl bg-white"
               >
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110 border-2"
-                  style={{ 
-                    backgroundColor: '#FFFFFF',
-                    borderColor: '#173C65'
-                  }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110 border-2 bg-white border-[#173C65]"
                 >
                   <svg
-                    className="w-7 h-7"
+                    className="w-7 h-7 text-black"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{ color: '#000000' }}
                   >
                     <path
                       strokeLinecap="round"
@@ -394,20 +320,12 @@ export default function ContactMethods() {
                   </svg>
                 </div>
                 <h3
-                  className="text-lg font-bold mb-1"
-                  style={{
-                    color: '#173C65',
-                    fontFamily: 'Libre Baskerville, Georgia, serif',
-                    fontWeight: 400
-                  }}
+                  className="text-lg font-bold mb-1 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
                 >
                   Download Brochure
                 </h3>
                 <p
-                  className="text-xs text-gray-600 text-center"
-                  style={{
-                    fontFamily: 'Assistant, sans-serif',
-                  }}
+                  className="text-xs text-gray-600 text-center font-['Assistant',sans-serif]"
                 >
                   Get detailed information
                 </p>

@@ -15,7 +15,7 @@ export const warehouseConfig = {
     subtitle: "PRIME LOCATION FOR LOGISTICS & LAST-MILE OPERATIONS",
     description: "Introducing one of the most attractive new industrial developments in Tlalnepantla—a Class A distribution facility strategically located in the highly demanded Barrientos submarket, the epicenter of logistics, e-commerce, transportation, and last-mile delivery for Mexico City and the entire Metro Area.",
     ctaText: "Book a Tour",
-    ctaLink: "#form",
+    ctaLink: "#contact",
     // Images will be imported from assets - use empty array to use fallback
     images: [], // Empty array will use fallback images from assets
     backgroundImage: null, // Will use fallback bg from assets
@@ -219,11 +219,11 @@ export const warehouseConfig = {
   ctas: {
     primary: {
       text: "Book a Tour",
-      link: "#form",
+      link: "#contact",
     },
     secondary: {
       text: "Schedule a Call",
-      link: "#form",
+      link: "#contact",
     },
     whatsapp: {
       text: "Contact via WhatsApp",

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* --- ADDED FIX FOR SCROLLING --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 140px; /* This pushes content down so the header doesn't cover it - accounts for fixed header height */
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
