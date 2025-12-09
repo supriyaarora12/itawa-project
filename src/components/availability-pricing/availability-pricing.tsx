@@ -8,24 +8,18 @@ export default function AvailabilityPricing() {
 
   return (
     <section className="py-16 lg:py-24" id="availability">
-      <div className="container max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container max-w-7xl mx-auto ">
         {/* Header */}
         <div className="text-center mb-12">
           <h2
-            className="text-4xl lg:text-5xl font-bold mb-6"
-            style={{
-              color: '#173C65',
-              fontFamily: 'Libre Baskerville, Georgia, serif',
-              fontWeight: 400
-            }}
+            className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+          
           >
             Availability & Pricing
           </h2>
           <p
-            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
+           
           >
             Ready to move in immediately. Flexible pricing options to suit your business needs.
           </p>
@@ -125,14 +119,9 @@ export default function AvailabilityPricing() {
                 Get Quote
               </h3>
               <a
-                href="#form"
-                className="px-6 py-2 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90 border-2"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: '#000000',
-                  borderColor: '#173C65',
-                  fontFamily: 'Assistant, sans-serif',
-                }}
+                href="#contact"
+                className="px-6 py-2 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90 border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
+        
               >
                 Contact Us
               </a>

@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { warehouseConfig } from '@/config/warehouse-content';
+import { logo } from '@/assets';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,6 +17,75 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Smooth scroll with offset for anchor links
+  useEffect(() => {
+    const scrollToSection = (targetId: string, smooth: boolean = true) => {
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Calculate header height dynamically - get the full header including both bars
+        const header = document.querySelector('header');
+        let headerHeight = 140; // Default fallback
+        
+        if (header) {
+          // Get the actual rendered height of the header
+          headerHeight = header.offsetHeight;
+          
+          // Add a small buffer for better spacing
+          headerHeight += 20;
+        }
+        
+        // Calculate scroll position with offset
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        
+        // Smooth scroll to position
+        window.scrollTo({
+          top: Math.max(0, offsetPosition), // Ensure we don't scroll to negative position
+          behavior: smooth ? 'smooth' : 'auto'
+        });
+      }
+    };
+
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement;
+      
+      if (anchor && anchor.getAttribute('href')?.startsWith('#')) {
+        const href = anchor.getAttribute('href');
+        if (href && href !== '#') {
+          const targetId = href.substring(1);
+          e.preventDefault();
+          scrollToSection(targetId);
+          
+          // Close mobile menu if open
+          setIsMobileMenuOpen(false);
+        }
+      }
+    };
+
+    // Handle initial hash in URL (e.g., page refresh with #gallery)
+    const handleInitialHash = () => {
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+          scrollToSection(targetId, false); // Instant scroll on page load
+        }, 100);
+      }
+    };
+
+    // Add click listener to document
+    document.addEventListener('click', handleAnchorClick);
+    
+    // Handle initial hash
+    handleInitialHash();
+
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+    };
   }, []);
 
   // Intersection Observer for active section detection
@@ -76,7 +147,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full" style={{ backgroundColor: 'transparent', position: 'sticky', top: 0, zIndex: 100 }}>
+    <header className="w-full bg-white sticky top-0 z-[999]">
       {/* Top Utility Bar */}
       <div className="w-full bg-[var(--gray-dark)] py-2 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -86,8 +157,7 @@ export default function Header() {
               href={`https://${warehouseConfig.brand.website}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white text-sm hover:opacity-80 transition-opacity"
-              style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+              className="text-white text-sm hover:opacity-80 transition-opacity font-[var(--font-family-sans-serif)]"
             >
               {warehouseConfig.brand.website}
             </a>
@@ -96,13 +166,7 @@ export default function Header() {
           {/* CTA Button */}
           <a
             href={warehouseConfig.ctas.primary.link}
-            className="px-5 py-[5px] text-sm font-normal rounded-lg hover:opacity-90 transition-opacity -mr-12 md:-mr-16 lg:-mr-20 border-2"
-            style={{ 
-              backgroundColor: '#FFFFFF',
-              color: '#000000',
-              borderColor: '#173C65',
-              fontFamily: 'var(--font-family-sans-serif)' 
-            }}
+            className="px-5 py-[5px] text-sm font-normal rounded-lg hover:opacity-90 transition-opacity -mr-12 md:-mr-16 lg:-mr-20 border-2 bg-white text-black border-[#173C65] font-[var(--font-family-sans-serif)]"
           >
             {warehouseConfig.ctas.primary.text}
           </a>
@@ -110,36 +174,18 @@ export default function Header() {
       </div>
 
       {/* Main Navigation Bar */}
-      <nav className="w-full py-4 px-4 md:px-6 lg:px-8 transition-colors duration-300" style={{ backgroundColor: isScrolled ? '#ffffff' : '#EFF6FF' }}>
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+      <nav className={`w-full py-4 px-4 md:px-6 lg:px-8 transition-colors duration-300 fixed top-0 left-0 right-0 z-[100] ${isScrolled ? 'bg-white' : 'bg-[#EFF6FF]'}`}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* NEWMARK Logo */}
           <div className="flex items-center">
-            <div 
-              className="font-bold text-black uppercase"
-              style={{
-                fontSize: 'clamp(1.5rem, 5vw, 2.25rem)',
-                fontFamily: 'Arial, Helvetica, sans-serif',
-                letterSpacing: '0.05em',
-                lineHeight: '1',
-                fontWeight: 700,
-              }}
-            >
-              NEWMA<span className="relative inline-block">
-                R
-                <span
-                  className="absolute"
-                  style={{
-                    left: '50%',
-                    top: '18%',
-                    width: '2px',
-                    height: '58%',
-                    backgroundColor: '#000',
-                    transform: 'translateX(-50%) rotate(25deg)',
-                    transformOrigin: 'center',
-                  }}
-                />
-              </span>K
-            </div>
+            <Image
+              src={logo}
+              alt="NEWMARK Logo"
+              width={180}
+              height={45}
+              className="h-[clamp(1.5rem,5vw,2.25rem)] w-auto"
+              priority
+            />
           </div>
 
           {/* Desktop Navigation Links */}
@@ -152,26 +198,11 @@ export default function Header() {
                 <a
                   key={index}
                   href={`#${linkId}`}
-                  className={`text-base font-medium transition-colors ${
+                  className={`text-base font-medium transition-colors font-['Assistant',sans-serif] ${
                     isActive
-                      ? 'border-b-2 pb-1'
-                      : ''
+                      ? 'border-b-2 pb-1 text-[#173C65] border-[#173C65]'
+                      : 'text-[var(--dark)] border-transparent hover:text-[#173C65]'
                   }`}
-                  style={{ 
-                    fontFamily: 'Assistant, sans-serif',
-                    color: isActive ? '#173C65' : 'var(--dark)',
-                    borderColor: isActive ? '#173C65' : 'transparent'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.color = '#173C65';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.color = 'var(--dark)';
-                    }
-                  }}
                 >
                   {link}
                 </a>
@@ -223,26 +254,11 @@ export default function Header() {
                     key={index}
                     href={`#${linkId}`}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-base font-semibold transition-colors px-2 py-1 ${
+                    className={`text-base font-semibold transition-colors px-2 py-1 font-['Assistant',sans-serif] ${
                       isActive
-                        ? 'border-l-4'
-                        : ''
+                        ? 'border-l-4 text-[#173C65] border-[#173C65]'
+                        : 'text-[var(--dark)] border-transparent hover:text-[#173C65]'
                     }`}
-                    style={{
-                      color: isActive ? '#173C65' : 'var(--dark)',
-                      borderColor: isActive ? '#173C65' : 'transparent',
-                      fontFamily: 'Assistant, sans-serif'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.color = '#173C65';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.color = 'var(--dark)';
-                      }
-                    }}
                   >
                     {link}
                   </a>

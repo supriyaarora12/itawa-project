@@ -83,14 +83,10 @@ export default function LeadForm() {
         <div key={field.name} className="w-full">
           <label
             htmlFor={field.name}
-            className="block text-sm font-medium mb-1.5"
-            style={{
-              color: 'var(--gray-dark)',
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="block text-sm font-medium mb-1.5 text-[var(--gray-dark)] font-['Assistant',sans-serif]"
           >
             {field.label}
-            {field.required && <span className="ml-1" style={{ color: '#173C65' }}>*</span>}
+            {field.required && <span className="ml-1 text-[#173C65]">*</span>}
           </label>
           <textarea
             id={field.name}
@@ -98,21 +94,15 @@ export default function LeadForm() {
             value={value}
             onChange={(e) => handleChange(field.name, e.target.value)}
             rows={3}
-            className={`w-full px-3 py-2 rounded-lg border transition-all duration-200 ${
+            className={`w-full px-3 py-2 rounded-lg border transition-all duration-200 font-['Assistant',sans-serif] text-[0.95rem] text-black bg-white ${
               hasError
                 ? 'border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
                 : 'border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
             }`}
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-              fontSize: '0.95rem',
-              color: '#000000',
-              backgroundColor: '#FFFFFF',
-            }}
             placeholder={`Enter ${field.label.toLowerCase()}`}
           />
           {hasError && (
-            <p className="mt-1 text-sm" style={{ color: '#173C65', fontFamily: 'Assistant, sans-serif' }}>
+            <p className="mt-1 text-sm text-[#173C65] font-['Assistant',sans-serif]">
               {errors[field.name]}
             </p>
           )}
@@ -125,31 +115,21 @@ export default function LeadForm() {
         <div key={field.name} className="w-full">
           <label
             htmlFor={field.name}
-            className="block text-sm font-medium mb-1.5"
-            style={{
-              color: 'var(--gray-dark)',
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="block text-sm font-medium mb-1.5 text-[var(--gray-dark)] font-['Assistant',sans-serif]"
           >
             {field.label}
-            {field.required && <span className="ml-1" style={{ color: '#173C65' }}>*</span>}
+            {field.required && <span className="ml-1 text-[#173C65]">*</span>}
           </label>
           <select
             id={field.name}
             name={field.name}
             value={value}
             onChange={(e) => handleChange(field.name, e.target.value)}
-            className={`w-full px-3 py-2 rounded-lg border transition-all duration-200 bg-white ${
+            className={`w-full px-3 py-2 rounded-lg border transition-all duration-200 bg-white font-['Assistant',sans-serif] text-[0.95rem] text-black ${
               hasError
                 ? 'border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
                 : 'border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
             }`}
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-              fontSize: '0.95rem',
-              color: '#000000',
-              backgroundColor: '#FFFFFF',
-            }}
           >
             <option value="">Select {field.label}</option>
             {field.options?.map((option) => (
@@ -159,7 +139,7 @@ export default function LeadForm() {
             ))}
           </select>
           {hasError && (
-            <p className="mt-1 text-sm" style={{ color: '#173C65', fontFamily: 'Assistant, sans-serif' }}>
+            <p className="mt-1 text-sm text-[#173C65] font-['Assistant',sans-serif]">
               {errors[field.name]}
             </p>
           )}
@@ -171,11 +151,7 @@ export default function LeadForm() {
       <div key={field.name} className="w-full">
         <label
           htmlFor={field.name}
-          className="block text-sm font-medium mb-2"
-          style={{
-            color: 'var(--gray-dark)',
-            fontFamily: 'Assistant, sans-serif',
-          }}
+          className="block text-sm font-medium mb-2 text-[var(--gray-dark)] font-['Assistant',sans-serif]"
         >
           {field.label}
           {field.required && <span className="text-blue-500 ml-1">*</span>}
@@ -186,21 +162,15 @@ export default function LeadForm() {
           name={field.name}
           value={value}
           onChange={(e) => handleChange(field.name, e.target.value)}
-          className={`w-full px-4 py-3 rounded-lg border transition-all duration-200 ${
+          className={`w-full px-4 py-3 rounded-lg border transition-all duration-200 font-['Assistant',sans-serif] text-[0.95rem] text-black bg-white ${
             hasError
               ? 'border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
               : 'border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
           }`}
-          style={{
-            fontFamily: 'Assistant, sans-serif',
-            fontSize: '0.95rem',
-            color: '#000000',
-            backgroundColor: '#FFFFFF',
-          }}
           placeholder={`Enter ${field.label.toLowerCase()}`}
         />
         {hasError && (
-          <p className="mt-1 text-sm text-blue-500" style={{ fontFamily: 'Assistant, sans-serif' }}>
+          <p className="mt-1 text-sm text-blue-500 font-['Assistant',sans-serif]">
             {errors[field.name]}
           </p>
         )}
@@ -210,28 +180,19 @@ export default function LeadForm() {
 
   return (
     <section
-      id="form"
-      className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-white"
-      style={{ scrollMarginTop: '80px' }}
+      id="contact"
+      className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-white scroll-mt-20"
     >
       <div className="container max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h2
-            className="text-4xl lg:text-5xl font-bold mb-4"
-            style={{
-              color: '#173C65',
-              fontFamily: 'Libre Baskerville, Georgia, serif',
-              fontWeight: 400
-            }}
+            className="text-4xl lg:text-5xl font-bold mb-4 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
           >
             {warehouseConfig.leadForm.title}
           </h2>
           <p
-            className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed"
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
           >
             {warehouseConfig.leadForm.subtitle}
           </p>
@@ -240,10 +201,7 @@ export default function LeadForm() {
         {/* Success Message */}
         {isSubmitted && (
           <div
-            className="mb-6 p-4 rounded-lg border-2 border-green-500 bg-green-50"
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="mb-6 p-4 rounded-lg border-2 border-green-500 bg-green-50 font-['Assistant',sans-serif]"
           >
             <p className="text-green-700 font-medium text-center">
               ✅ Thank you! We've received your inquiry and will get back to you shortly.
@@ -273,26 +231,14 @@ export default function LeadForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 w-full sm:w-auto min-w-[150px] disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 border-2"
-              style={{
-                backgroundColor: '#FFFFFF',
-                color: '#000000',
-                borderColor: '#173C65',
-                fontFamily: 'Assistant, sans-serif',
-              }}
+              className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 w-full sm:w-auto min-w-[150px] disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
             >
               {isSubmitting ? 'Submitting...' : warehouseConfig.ctas.primary.text}
             </button>
 
             <a
               href={warehouseConfig.ctas.secondary.link}
-              className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 w-full sm:w-auto min-w-[150px] text-center border-2 hover:opacity-90"
-              style={{
-                borderColor: '#173C65',
-                color: '#000000',
-                backgroundColor: '#FFFFFF',
-                fontFamily: 'Assistant, sans-serif',
-              }}
+              className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 w-full sm:w-auto min-w-[150px] text-center border-2 hover:opacity-90 border-[#173C65] text-black bg-white font-['Assistant',sans-serif]"
             >
               {warehouseConfig.ctas.secondary.text}
             </a>
@@ -306,12 +252,7 @@ export default function LeadForm() {
                   href={warehouseConfig.ctas.whatsapp.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg font-medium text-xs transition-all duration-200 flex items-center gap-2 hover:opacity-90"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    color: '#000000',
-                    fontFamily: 'Assistant, sans-serif',
-                  }}
+                  className="px-4 py-2 rounded-lg font-medium text-xs transition-all duration-200 flex items-center gap-2 hover:opacity-90 bg-white text-black font-['Assistant',sans-serif]"
                 >
                   <svg
                     className="w-4 h-4"
@@ -329,12 +270,7 @@ export default function LeadForm() {
                 <a
                   href={warehouseConfig.ctas.download.link}
                   download
-                  className="px-4 py-2 rounded-lg font-medium text-xs transition-all duration-200 flex items-center gap-2 hover:opacity-90"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    color: 'var(--gray-dark)',
-                    fontFamily: 'Assistant, sans-serif',
-                  }}
+                  className="px-4 py-2 rounded-lg font-medium text-xs transition-all duration-200 flex items-center gap-2 hover:opacity-90 bg-white text-[var(--gray-dark)] font-['Assistant',sans-serif]"
                 >
                   <svg
                     className="w-4 h-4"
@@ -358,10 +294,7 @@ export default function LeadForm() {
 
           {/* Disclaimer */}
           <p
-            className="mt-4 text-xs text-gray-500 text-center leading-relaxed"
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="mt-4 text-xs text-gray-500 text-center leading-relaxed font-['Assistant',sans-serif]"
           >
             {warehouseConfig.disclaimer}
           </p>

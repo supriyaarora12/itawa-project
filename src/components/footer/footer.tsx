@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { warehouseConfig } from '@/config/warehouse-content';
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
+import { logo } from '@/assets';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,22 +15,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
           {/* Company Info */}
           <div>
-            <h3
-              className="text-2xl font-bold mb-4"
-              style={{
-                color: '#FFFFFF',
-                fontFamily: 'Libre Baskerville, Georgia, serif',
-                fontWeight: 400,
-                letterSpacing: '0.05em',
-              }}
-            >
-              NEWMARK
-            </h3>
+            <div className="mb-4">
+              <Image
+                src={logo}
+                alt="NEWMARK Logo"
+                width={150}
+                height={38}
+                className="h-6 w-auto brightness-0 invert"
+              />
+            </div>
             <p
               className="text-gray-300 text-sm leading-relaxed mb-4"
-              style={{
-                fontFamily: 'Assistant, sans-serif',
-              }}
+              className="font-['Assistant',sans-serif]"
             >
               Premium Class A industrial warehouse facilities in strategic locations across Mexico. Your partner for logistics excellence.
             </p>
@@ -37,9 +35,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-1"
-              style={{
-                fontFamily: 'Assistant, sans-serif',
-              }}
+              className="font-['Assistant',sans-serif]"
             >
               <span>{warehouseConfig.brand.website}</span>
               <ExternalLink className="w-3 h-3" />
@@ -50,11 +46,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-lg font-semibold mb-4"
-              style={{
-                color: '#FFFFFF',
-                fontFamily: 'Libre Baskerville, Georgia, serif',
-                fontWeight: 400
-              }}
+              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Quick Links
             </h4>
@@ -79,11 +71,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-lg font-semibold mb-4"
-              style={{
-                color: '#FFFFFF',
-                fontFamily: 'Libre Baskerville, Georgia, serif',
-                fontWeight: 400
-              }}
+              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Contact
             </h4>
@@ -136,11 +124,7 @@ export default function Footer() {
           <div>
             <h4
               className="text-lg font-semibold mb-4"
-              style={{
-                color: '#FFFFFF',
-                fontFamily: 'Libre Baskerville, Georgia, serif',
-                fontWeight: 400
-              }}
+              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Our Locations
             </h4>
@@ -169,11 +153,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 pt-8 mb-8">
             <h4
               className="text-sm font-semibold mb-3"
-              style={{
-                color: '#FFFFFF',
-                fontFamily: 'Libre Baskerville, Georgia, serif',
-                fontWeight: 400
-              }}
+              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Disclaimer
             </h4>
@@ -219,9 +199,7 @@ export default function Footer() {
             </div>
             <p
               className="text-sm text-gray-400 text-center md:text-right"
-              style={{
-                fontFamily: 'Assistant, sans-serif',
-              }}
+              className="font-['Assistant',sans-serif]"
             >
               © {currentYear} {warehouseConfig.brand.name}. All rights reserved.
             </p>

@@ -17,24 +17,18 @@ export default function ProjectLocation() {
 
   return (
     <section className="py-16 lg:py-24 bg-white" id="location">
-      <div className="container max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container max-w-7xl mx-auto ">
         {/* Header */}
         <div className="text-center mb-12">
           <h2
-            className="text-4xl md:text-5xl font-bold mb-6"
-            style={{
-              color: '#173C65',
-              fontFamily: 'Libre Baskerville, Georgia, serif',
-              fontWeight: 400
-            }}
+            className="text-4xl md:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+          
           >
             Warehouse Locations
           </h2>
           <p
-            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            style={{
-              fontFamily: 'Assistant, sans-serif',
-            }}
+            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
+            
           >
             Strategically located warehouses in prime industrial zones. Choose the location that best fits your operational needs.
           </p>
@@ -51,10 +45,9 @@ export default function ProjectLocation() {
                   ? 'text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
-              style={{
-                fontFamily: 'Assistant, sans-serif',
-                backgroundColor: selectedLocation === index ? '#173C65' : undefined,
-              }}
+              className={`font-['Assistant',sans-serif] ${
+                selectedLocation === index ? 'bg-[#173C65]' : ''
+              }`}
             >
               {location.name}
             </button>
@@ -69,7 +62,7 @@ export default function ProjectLocation() {
               src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5!2d-99.2!3d19.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDMwJzAwLjAiTiA5OcKwMTInMDAuMCJX!5e0!3m2!1sen!2smx!4v1234567890`}
               width="100%"
               height="450"
-              style={{ border: 0 }}
+              className="border-0"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -77,7 +70,7 @@ export default function ProjectLocation() {
             />
             <div className="p-6 bg-white border-t border-gray-200">
               <div className="flex items-start gap-3 mb-3">
-                <MapPin className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#173C65' }} />
+                <MapPin className="w-5 h-5 flex-shrink-0 mt-1 text-[#173C65]" />
                 <div>
                 <h3
                   className="font-bold text-lg mb-1"
@@ -148,7 +141,7 @@ export default function ProjectLocation() {
                         fontFamily: 'Assistant, sans-serif',
                       }}
                     >
-                      <span className="mt-1" style={{ color: '#173C65' }}>•</span>
+                      <span className="mt-1 text-[#173C65]">•</span>
                       <span>{usp}</span>
                     </li>
                   ))}
@@ -169,12 +162,8 @@ export default function ProjectLocation() {
                   {locations[selectedLocation].idealFor.map((useCase, useCaseIndex) => (
                     <span
                       key={useCaseIndex}
-                      className="px-3 py-1.5 rounded-full text-sm font-medium"
-                      style={{
-                        backgroundColor: '#EFF6FF',
-                        color: '#173C65',
-                        fontFamily: 'Assistant, sans-serif',
-                      }}
+                      className="px-3 py-1.5 rounded-full text-sm font-medium bg-[#EFF6FF] text-[#173C65] font-['Assistant',sans-serif]"
+                   
                     >
                       {useCase}
                     </span>
